@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ambeo Studio MVP</title>
+    <link rel="stylesheet" href="./src/ui/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Ambeo Studio</h1>
+      <div class="engine-status">
+        <span id="sampleRate">Sample Rate: --</span>
+        <span id="bufferSize">Buffer: --</span>
+        <span id="masterMeter">Master: -∞ dB</span>
+      </div>
+      <div class="toolbar">
+        <button id="startAudio">Start Audio</button>
+        <button id="savePatch">Save Patch</button>
+        <button id="loadPatch">Load Patch</button>
+
+        <label class="menu-group">Input
+          <select id="inputMenu">
+            <option value="oscillator">Oscillator Synth</option>
+            <option value="crypto">Crypto Sonifier</option>
+            <option value="satellite">Satellite Sonifier</option>
+          </select>
+          <button id="addInput">Add</button>
+        </label>
+
+        <label class="menu-group">Effects
+          <select id="effectsMenu">
+            <option value="reverb">Reverb</option>
+            <option value="compressor">Compressor</option>
+            <option value="eq">EQ</option>
+            <option value="delay">Delay</option>
+            <option value="distortion">Distortion/Saturation</option>
+          </select>
+          <button id="addEffect">Add</button>
+        </label>
+
+        <label class="menu-group">Mixers
+          <select id="mixersMenu">
+            <option value="mixer">Stereo Mixer (4/8/12)</option>
+          </select>
+          <button id="addMixer">Add</button>
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <aside class="help-panel">
+        <h2>Patching</h2>
+        <ol>
+          <li>Click an output port, then an input port to create a cable.</li>
+          <li>Drag modules by their title bar.</li>
+          <li>Use Input / Effects / Mixers menus to build your studio.</li>
+        </ol>
+      </aside>
+      <section id="graphCanvas" class="graph-canvas"></section>
+    </main>
+
+    <input id="patchFileInput" type="file" accept="application/json" hidden />
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

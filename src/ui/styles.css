@@ -1,0 +1,41 @@
+:root {
+  color-scheme: dark;
+  --bg: #10131a;
+  --panel: #171b24;
+  --line: #2a3040;
+  --accent: #6ab2ff;
+}
+* { box-sizing: border-box; font-family: Inter, system-ui, sans-serif; }
+body { margin:0; background:var(--bg); color:#e8edf7; }
+.topbar { display:flex; align-items:center; gap:16px; padding:10px 14px; border-bottom:1px solid var(--line); background:#0e1219; position:sticky; top:0; z-index:2; }
+.topbar h1 { margin:0; font-size:18px; }
+.engine-status { display:flex; gap:12px; font-size:12px; color:#9db0cd; }
+.toolbar { margin-left:auto; display:flex; align-items:center; gap:10px; }
+button { background:#1f2735; color:#dce7fb; border:1px solid #35415a; border-radius:6px; padding:6px 10px; cursor:pointer; }
+.menu-group { display:flex; align-items:center; gap:6px; font-size:12px; color:#9db0cd; }
+.menu-group select { background:#1a2332; border:1px solid #35415a; color:#dce7fb; border-radius:6px; padding:6px; }
+main { display:flex; height: calc(100vh - 56px); }
+.help-panel { width:280px; border-right:1px solid var(--line); padding:14px; background:#121823; }
+.graph-canvas {
+  position:relative;
+  flex:1;
+  overflow:auto;
+  background-color:#0d1220;
+  background-image:
+    linear-gradient(rgba(88,121,182,.17) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88,121,182,.17) 1px, transparent 1px),
+    radial-gradient(circle at top, rgba(36,66,122,.18), transparent 45%);
+  background-size: 32px 32px, 32px 32px, 100% 100%;
+}
+.module { position:absolute; width:250px; background:var(--panel); border:1px solid #364259; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,.35); user-select:none; }
+.module-header { cursor:grab; background:#1b2432; padding:8px 10px; border-radius:10px 10px 0 0; display:flex; justify-content:space-between; }
+.module-body { padding:10px; display:grid; gap:8px; }
+.module-row { display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:12px; }
+.module-row input, .module-row select { width:120px; }
+.ports { display:flex; justify-content:space-between; padding:8px 10px; border-top:1px solid #2d374b; }
+.port { width:12px; height:12px; border-radius:999px; border:2px solid #9bb6db; cursor:pointer; }
+.port.output { background:#8be1ff; }
+.port.input { background:#ffc66d; }
+svg.cables { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.status-good { color:#86e8a4; }
+.status-warn { color:#ffd27f; }
